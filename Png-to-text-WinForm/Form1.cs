@@ -16,7 +16,7 @@ namespace Png_to_text_WinForm
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
-                ofd.Filter = "Resim Dosyalarý|*.jpg;*.jpeg;*.png;*.bmp";
+                ofd.Filter = "Resim Dosyalarý|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     selectedImagePath = ofd.FileName;
