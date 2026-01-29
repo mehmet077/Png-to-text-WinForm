@@ -56,5 +56,21 @@ namespace Png_to_text_WinForm
                 MessageBox.Show("Hata: " + ex.Message);
             }
         }
+        float zoomFactor = 1.0f;
+        const float zoomStep = 0.1f;
+        const float maxZoom = 5.0f;
+        const float minZoom = 0.2f;
+        private void PictureBox1_MouseWheel(object sender, MouseEventArgs e)
+        {
+            if (pictureBox1.Image == null) return;
+
+            zoomFactor += (e.Delta > 0) ? zoomStep : -zoomStep;
+            zoomFactor = Math.Clamp(zoomFactor, minZoom, maxZoom);
+
+            pictureBox1.Width = (int)(panel1.Width * zoomFactor);
+            pictureBox1.Height = (int)(panel1.Height * zoomFactor);
+        }
+
+
     }
 }
